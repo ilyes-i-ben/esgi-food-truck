@@ -8,12 +8,15 @@ const cartManager = new CartManager();
 const orderManager = new OrderManager();
 
 export function openOrderModal() {
-  const cart = cartManager.get();
+  // always fetch latest cart state
+  const cart = cartManager.load();
   const view = new OrderModalView(cart);
   const refs = view.render();
   new OrderModalController(refs, async (closeModal) => {
     closeModal();
-    const order = await orderManager.submit(cart);
+    // fetch latest cartt again before submit
+    const latestCart = cartManager.load();
+    const order = await orderManager.submit(latestCart);
     if (order) {
       window.dispatchEvent(new CustomEvent('OrderPlaced', { detail: order }));
     }
