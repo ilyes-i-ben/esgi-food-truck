@@ -1,6 +1,6 @@
 // order.js - Order simulation and management
 import { showToast } from './components/toast.js';
-import { renderOrderTracker, removeOrderTracker } from './components/orderTracker.js';
+import { renderOrderTracker } from './components/orderTracker.js';
 
 const STORAGE_KEY = 'mini-food-truck-orders';
 const MAX_ORDERS = 5;
@@ -25,20 +25,9 @@ export async function submitOrder(cart, onDone) {
   orders.push(order);
   saveOrders(orders);
   showToast('Order placed!');
-  renderOrderTracker(order, true);
+  renderOrderTracker(order, true); // show cancel only for new order before validation
   await simulateOrderProgress(order, onDone);
   return true;
-}
-
-export function cancelOrder(id) {
-  let orders = loadOrders();
-  const idx = orders.findIndex(o => o.id === id);
-  if (idx !== -1 && orders[idx].state === 0) {
-    orders[idx].cancelled = true;
-    saveOrders(orders);
-    removeOrderTracker(id);
-    showToast('Order cancelled.');
-  }
 }
 
 export function restoreOrders(onDone) {
@@ -48,7 +37,7 @@ export function restoreOrders(onDone) {
       renderOrderTracker(order, false);
       simulateOrderProgress(order, onDone, true);
     }
-    // do NOT render tracker or fire events for shipped/completed orders
+    // do NOT render tracker or fire events for shipped/completed/cancelled orders
   });
 }
 
@@ -67,7 +56,7 @@ function loadOrders() {
 async function simulateOrderProgress(order, onDone, restoring = false) {
   let orders = loadOrders();
   let idx = orders.findIndex(o => o.id === order.id);
-  if (order.cancelled) return;
+  if (orders[idx] && orders[idx].cancelled) return; // stop progress if cancelled
   // If restoring, skip delays for already-completed states
   if (!restoring || order.state === 0) {
     await delay(2200);

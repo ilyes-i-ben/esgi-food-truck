@@ -1,9 +1,8 @@
 // orderTracker.js - UI for order progress tracking
-import { cancelOrder } from '../order.js';
 
 const trackerRoot = getOrCreateTrackerRoot();
 
-export function renderOrderTracker(order, allowCancel) {
+export function renderOrderTracker(order) {
   let tracker = document.getElementById('order-tracker-' + order.id);
   if (!tracker) {
     tracker = document.createElement('div');
@@ -22,21 +21,8 @@ export function renderOrderTracker(order, allowCancel) {
     stepper.appendChild(step);
   });
   tracker.appendChild(stepper);
-  if (order.state === 0 && !order.cancelled && allowCancel) {
-    const cancelBtn = document.createElement('button');
-    cancelBtn.className = 'order-cancel-btn';
-    cancelBtn.textContent = 'Annuler';
-    cancelBtn.onclick = () => cancelOrder(order.id);
-    tracker.appendChild(cancelBtn);
-  }
-  if (order.cancelled) {
-    const cancelled = document.createElement('div');
-    cancelled.className = 'order-cancelled';
-    cancelled.textContent = 'Commande annulée';
-    tracker.appendChild(cancelled);
-  }
   // auto-hide tracker and dispatch OrderShipped when delivered
-  if (order.state === 2 && !order.cancelled) {
+  if (order.state === 2) {
     if (!order._restoring) {
       setTimeout(() => {
         tracker.remove();

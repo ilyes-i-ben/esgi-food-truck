@@ -8,11 +8,15 @@ export class OrderHistory {
       this.add(e.detail);
       this.render();
     });
+    window.addEventListener('OrderCancelled', e => {
+      // just re-render to remove cancelled from history if needed (optional, safe)
+      this.render();
+    });
     this.render();
   }
   add(order) {
-    // prevent duplicate history entries
-    if (this.history.some(o => o.id === order.id)) return;
+    // prevent duplicate history entries and skip cancelled
+    if (this.history.some(o => o.id === order.id) || order.cancelled) return;
     this.history.push({
       id: order.id,
       date: new Date(order.created).toLocaleString(),
