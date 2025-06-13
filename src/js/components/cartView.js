@@ -45,7 +45,7 @@ export function renderCart() {
     const li = node.querySelector('.cart-item');
     li.dataset.id = item.id;
     const img = li.querySelector('.cart-item-img');
-    img.src = item.image || 'https:
+    img.src = item.image ?? "https://via.placeholder.com/32x32?text=No+Img";
     img.alt = item.name;
     li.querySelector('.cart-item-name').textContent = item.name;
     li.querySelector('.cart-item-price').textContent = formatPrice(item.price);
