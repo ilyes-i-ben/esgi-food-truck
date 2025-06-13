@@ -1,6 +1,6 @@
 // OrderModalView.js - handles order modal ui
 import { Format } from '../utils/Format.js';
-import { OrderCalc } from '../utils/OrderCalc';
+import { OrderCalc } from '../utils/OrderCalc.js';
 
 export class OrderModalView {
   constructor(cart) {

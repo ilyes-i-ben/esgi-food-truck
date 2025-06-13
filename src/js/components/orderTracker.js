@@ -35,6 +35,13 @@ export function renderOrderTracker(order, allowCancel) {
     cancelled.textContent = 'Commande annulée';
     tracker.appendChild(cancelled);
   }
+  // auto-hide tracker and dispatch OrderShipped when delivered
+  if (order.state === 2) {
+    setTimeout(() => {
+      tracker.remove();
+      window.dispatchEvent(new CustomEvent('OrderShipped', { detail: order }));
+    }, 1200);
+  }
 }
 
 export function removeOrderTracker(id) {

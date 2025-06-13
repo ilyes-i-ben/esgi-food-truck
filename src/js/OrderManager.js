@@ -11,7 +11,7 @@ export class OrderManager {
   canSubmit() {
     return this.orders.length < OrderManager.MAX_ORDERS;
   }
-  async submit(cart, onDone) {
+  async submit(cart) {
     if (!this.canSubmit()) return false;
     const order = {
       id: Date.now(),
@@ -22,8 +22,9 @@ export class OrderManager {
     };
     this.orders.push(order);
     this.save();
-    await this.simulate(order, onDone);
-    return true;
+    // start async simulation but return order immediately
+    this.simulate(order);
+    return order;
   }
   cancel(id) {
     const idx = this.orders.findIndex(o => o.id === id);
@@ -58,6 +59,7 @@ export class OrderManager {
       if (this.orders[idx] && !this.orders[idx].cancelled && this.orders[idx].state === 0) {
         this.orders[idx].state = 1;
         this.save();
+        window.dispatchEvent(new CustomEvent('OrderUpdated', { detail: this.orders[idx] }));
       } else return;
     }
     if (!restoring || order.state <= 1) {
@@ -66,6 +68,7 @@ export class OrderManager {
       if (this.orders[idx] && !this.orders[idx].cancelled && this.orders[idx].state === 1) {
         this.orders[idx].state = 2;
         this.save();
+        window.dispatchEvent(new CustomEvent('OrderUpdated', { detail: this.orders[idx] }));
         if (onDone) onDone(this.orders[idx]);
       }
     }

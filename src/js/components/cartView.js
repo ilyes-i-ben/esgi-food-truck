@@ -12,6 +12,19 @@ const cartOrderBtn = cartArea.querySelector('.cart-order-btn');
 const cartEmpty = cartArea.querySelector('.cart-empty');
 const cartItemTemplate = document.getElementById('cart-item-template');
 
+// add clear cart button
+let clearBtn = cartArea.querySelector('.cart-clear-btn');
+if (!clearBtn) {
+  clearBtn = document.createElement('button');
+  clearBtn.className = 'cart-clear-btn';
+  clearBtn.textContent = 'Clear Cart';
+  clearBtn.onclick = () => {
+    const event = new CustomEvent('CartCleared');
+    window.dispatchEvent(event);
+  };
+  cartArea.appendChild(clearBtn);
+}
+
 export function renderCart() {
   const cart = getCart();
   cartList.innerHTML = '';
@@ -19,11 +32,13 @@ export function renderCart() {
     cartTotalRow.classList.add('hidden');
     cartOrderBtn.classList.add('hidden');
     cartEmpty.classList.remove('hidden');
+    clearBtn.classList.add('hidden');
     return;
   }
   cartEmpty.classList.add('hidden');
   cartTotalRow.classList.remove('hidden');
   cartOrderBtn.classList.remove('hidden');
+  clearBtn.classList.remove('hidden');
   let total = 0;
   cart.forEach(item => {
     const node = cartItemTemplate.content.cloneNode(true);

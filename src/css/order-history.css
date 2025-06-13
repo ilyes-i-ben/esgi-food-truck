@@ -1,0 +1,55 @@
+/* order-history.css - styles for order history panel */
+.order-history-section {
+  background: var(--color-bg);
+  border: 2px solid var(--color-accent);
+  border-radius: 18px;
+  box-shadow: 0 2px 12px var(--color-mid-alpha-80);
+  margin: 2rem auto 2rem auto;
+  max-width: 700px;
+  padding: 1.2rem 1.5rem;
+  font-family: 'Poppins', sans-serif;
+}
+.order-history-title {
+  color: var(--color-dark);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.order-history-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.order-history-item {
+  background: var(--color-light);
+  border-radius: 10px;
+  margin-bottom: 1em;
+  padding: 0.7em 1em;
+  color: var(--color-dark);
+}
+.order-history-meta {
+  font-size: 0.98em;
+  color: var(--color-mid);
+  margin-bottom: 0.3em;
+}
+.order-history-meta span {
+  float: right;
+  color: var(--color-dark);
+}
+.order-history-items {
+  list-style: disc inside;
+  margin: 0.2em 0 0.2em 1em;
+  padding: 0;
+  color: var(--color-dark);
+}
+.order-history-total {
+  font-weight: 600;
+  color: var(--color-dark);
+  margin-top: 0.3em;
+}
+.order-history-empty {
+  color: var(--color-mid);
+  text-align: center;
+  padding: 1.5em 0;
+  font-size: 1.1em;
+}

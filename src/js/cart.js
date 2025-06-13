@@ -1,5 +1,6 @@
 // cart.js - Cart state management and persistence
 import { showToast } from './components/toast.js';
+import { renderCart } from './components/cartView.js';
 
 const STORAGE_KEY = 'mini-food-truck-cart';
 let cart = loadCart();
@@ -48,3 +49,8 @@ function loadCart() {
     return [];
   }
 }
+
+window.addEventListener('CartCleared', () => {
+  clearCart();
+  renderCart();
+});

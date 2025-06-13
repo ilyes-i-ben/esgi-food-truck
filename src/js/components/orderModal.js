@@ -12,7 +12,10 @@ export function openOrderModal() {
   const view = new OrderModalView(cart);
   const refs = view.render();
   new OrderModalController(refs, async (closeModal) => {
-    const ok = await orderManager.submit(cart, () => {});
-    if (ok) closeModal();
+    closeModal();
+    const order = await orderManager.submit(cart);
+    if (order) {
+      window.dispatchEvent(new CustomEvent('OrderPlaced', { detail: order }));
+    }
   });
 }
