@@ -1,6 +1,6 @@
 // loader.js - Loader/spinner component for async UI
-// -----------------------------------------------
-// Exports: loaderHTML
+
+
 
 export const loaderHTML = `
   <div class="menu-loader">

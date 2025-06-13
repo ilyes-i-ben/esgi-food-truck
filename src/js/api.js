@@ -1,4 +1,4 @@
-// hhandles all API requests for projet
+
 export async function fetchMenuData() {
   const endpoint = 'https://keligmartin.github.io/api/menu.json';
   const res = await fetch(endpoint);

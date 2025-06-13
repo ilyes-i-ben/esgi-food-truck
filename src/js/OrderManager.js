@@ -22,7 +22,7 @@ export class OrderManager {
     };
     this.orders.push(order);
     this.save();
-    // start async simulation but return order immediately
+    
     this.simulate(order);
     return order;
   }

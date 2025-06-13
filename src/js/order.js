@@ -18,14 +18,14 @@ export async function submitOrder(cart, onDone) {
   const order = {
     id: Date.now(),
     cart,
-    state: 0, // 0: prep, 1: delivery, 2: delivered
+    state: 0, 
     created: Date.now(),
     cancelled: false
   };
   orders.push(order);
   saveOrders(orders);
   showToast('Order placed!');
-  renderOrderTracker(order, true); // show cancel only for new order before validation
+  renderOrderTracker(order, true); 
   await simulateOrderProgress(order, onDone);
   return true;
 }
@@ -37,7 +37,6 @@ export function restoreOrders(onDone) {
       renderOrderTracker(order, false);
       simulateOrderProgress(order, onDone, true);
     }
-    // do NOT render tracker or fire events for shipped/completed/cancelled orders
   });
 }
 
@@ -56,8 +55,8 @@ function loadOrders() {
 async function simulateOrderProgress(order, onDone, restoring = false) {
   let orders = loadOrders();
   let idx = orders.findIndex(o => o.id === order.id);
-  if (orders[idx] && orders[idx].cancelled) return; // stop progress if cancelled
-  // If restoring, skip delays for already-completed states
+  if (orders[idx] && orders[idx].cancelled) return; 
+  
   if (!restoring || order.state === 0) {
     await delay(2200);
     orders = loadOrders();

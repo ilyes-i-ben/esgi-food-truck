@@ -1,6 +1,6 @@
 // events.js - handles modal events and accessibility
 
-// sets up modal event listeners and focus trap
+
 export function setupOrderModalEvents({ content, modalRoot, closeBtn, cancelBtn, validateBtn, modal }, onValidate, onClose) {
   let lastFocused = document.activeElement;
   function closeModal() {

@@ -12,7 +12,7 @@ const cartOrderBtn = cartArea.querySelector('.cart-order-btn');
 const cartEmpty = cartArea.querySelector('.cart-empty');
 const cartItemTemplate = document.getElementById('cart-item-template');
 
-// add clear cart button
+
 let clearBtn = cartArea.querySelector('.cart-clear-btn');
 if (!clearBtn) {
   clearBtn = document.createElement('button');
@@ -45,7 +45,7 @@ export function renderCart() {
     const li = node.querySelector('.cart-item');
     li.dataset.id = item.id;
     const img = li.querySelector('.cart-item-img');
-    img.src = item.image || 'https://placehold.co/60x60';
+    img.src = item.image || 'https:
     img.alt = item.name;
     li.querySelector('.cart-item-name').textContent = item.name;
     li.querySelector('.cart-item-price').textContent = formatPrice(item.price);

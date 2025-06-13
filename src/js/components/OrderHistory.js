@@ -9,13 +9,13 @@ export class OrderHistory {
       this.render();
     });
     window.addEventListener('OrderCancelled', e => {
-      // just re-render to remove cancelled from history if needed (optional, safe)
+      
       this.render();
     });
     this.render();
   }
   add(order) {
-    // prevent duplicate history entries and skip cancelled
+    
     if (this.history.some(o => o.id === order.id) || order.cancelled) return;
     this.history.push({
       id: order.id,

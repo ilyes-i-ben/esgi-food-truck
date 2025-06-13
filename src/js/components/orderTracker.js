@@ -21,7 +21,7 @@ export function renderOrderTracker(order) {
     stepper.appendChild(step);
   });
   tracker.appendChild(stepper);
-  // auto-hide tracker and dispatch OrderShipped when delivered
+  
   if (order.state === 2) {
     if (!order._restoring) {
       setTimeout(() => {

@@ -6,23 +6,17 @@
   <title>Mini Food Truck</title>
   <!-- Google Fonts: Poppins only -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <!-- Main stylesheet (modular imports) -->
   <link rel="stylesheet" href="/src/css/main.css">
 </head>
 <body>
-  <!-- Header: App Title -->
   <header id="app-header">
     <h1>Mini Food Truck</h1>
   </header>
 
-  <!-- Main Content Layout -->
   <main id="main-layout">
-    <!-- Menu Section: Meals will be dynamically loaded here -->
     <section id="menu-section" aria-label="Menu">
-      <!-- Menu items will be injected here by JS -->
     </section>
 
-    <!-- Cart Sidebar/Area: Cart items will appear here -->
     <aside id="cart-area" aria-label="Cart">
       <h2 class="cart-title">your cart</h2>
       <ul class="cart-list"></ul>
@@ -35,10 +29,8 @@
     </aside>
   </main>
 
-  <!-- order tracker root moved to bottom right for modern floating bar -->
   <div id="order-tracker-root"></div>
 
-  <!-- Templates for cart item and empty state -->
   <template id="cart-item-template">
     <li class="cart-item" data-id="">
       <img src="" alt="" class="cart-item-img">
@@ -76,14 +68,10 @@
     </div>
   </template>
 
-  <!-- Order Summary Modal Placeholder -->
   <div id="order-summary-modal" class="modal hidden" aria-modal="true" role="dialog">
-    <!-- Order summary will be injected here by JS -->
   </div>
 
-  <!-- Toaster/Notification Container -->
   <div id="toaster-container" aria-live="polite">
-    <!-- Toast notifications will appear here -->
   </div>
 
   <!-- Main JS (ES6 module) -->

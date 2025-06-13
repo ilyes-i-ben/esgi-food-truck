@@ -1,6 +1,6 @@
 // toast.js - Toast notification component
-// -----------------------------------------------
-// Exports: showToast(msg)
+
+
 
 /**
  * Show a toast notification (for errors, etc.)
