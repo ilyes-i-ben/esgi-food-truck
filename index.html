@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,24 +13,30 @@
     <h1>Mini Food Truck</h1>
   </header>
 
+  <!-- Main Content Layout -->
   <main id="main-layout">
+    <!-- Menu Section: Meals will be dynamically loaded here -->
     <section id="menu-section" aria-label="Menu">
+      <!-- Menu items will be injected here by JS -->
     </section>
 
-    <aside id="cart-area" aria-label="Cart">
-      <h2 class="cart-title">your cart</h2>
+    <!-- Cart Sidebar/Area: Cart items will appear here -->
+    <aside id="cart-area" aria-label="Panier">
+      <h2 class="cart-title">Votre panier</h2>
       <ul class="cart-list"></ul>
       <div class="cart-total-row hidden">
-        <span>total:</span>
+        <span>Total&nbsp;:</span>
         <span class="cart-total"></span>
       </div>
-      <button class="cart-order-btn" type="button">order</button>
-      <div class="cart-empty hidden">your cart is empty.<br><span style="font-size:1.2em;">🛒</span></div>
+      <button class="cart-order-btn" type="button">Commander</button>
+      <div class="cart-empty hidden">Votre panier est vide.<br><span style="font-size:1.2em;">🛒</span></div>
     </aside>
   </main>
 
+  <!-- order tracker root moved to bottom right for modern floating bar -->
   <div id="order-tracker-root"></div>
 
+  <!-- Templates for cart item and empty state -->
   <template id="cart-item-template">
     <li class="cart-item" data-id="">
       <img src="" alt="" class="cart-item-img">
@@ -44,7 +50,7 @@
         <button class="cart-qty-btn cart-qty-plus" type="button">+</button>
       </div>
       <div class="cart-item-subtotal"></div>
-      <button class="cart-remove-btn" type="button" title="remove">×</button>
+      <button class="cart-remove-btn" type="button" title="retirer">×</button>
     </li>
   </template>
 
@@ -52,23 +58,25 @@
   <template id="order-summary-modal-template">
     <div class="modal" role="dialog" aria-modal="true" tabindex="-1">
       <div class="modal-content" tabindex="0">
-        <button class="modal-close-btn" aria-label="close">×</button>
-        <h2 class="modal-title">order summary</h2>
+        <button class="modal-close-btn" aria-label="fermer">×</button>
+        <h2 class="modal-title">Récapitulatif de commande</h2>
         <ul class="modal-cart-list"></ul>
         <div class="modal-summary-totals">
-          <div><span>subtotal (ht):</span> <span class="modal-ht"></span></div>
-          <div><span>vat (10%):</span> <span class="modal-vat"></span></div>
-          <div class="modal-summary-total"><span>total (ttc):</span> <span class="modal-ttc"></span></div>
+          <div><span>Sous-total (HT)&nbsp;:</span> <span class="modal-ht"></span></div>
+          <div><span>TVA (10%)&nbsp;:</span> <span class="modal-vat"></span></div>
+          <div class="modal-summary-total"><span>Total (TTC)&nbsp;:</span> <span class="modal-ttc"></span></div>
         </div>
         <div class="modal-actions">
-          <button class="modal-cancel-btn" type="button">cancel</button>
-          <button class="modal-validate-btn" type="button">validate</button>
+          <button class="modal-cancel-btn" type="button">Annuler</button>
+          <button class="modal-validate-btn" type="button">Valider</button>
         </div>
       </div>
     </div>
   </template>
 
+  <!-- Order Summary Modal Placeholder -->
   <div id="order-summary-modal" class="modal hidden" aria-modal="true" role="dialog">
+    <!-- Order summary will be injected here by JS -->
   </div>
 
   <div id="toaster-container" aria-live="polite">

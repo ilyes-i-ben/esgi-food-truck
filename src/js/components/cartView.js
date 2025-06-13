@@ -17,7 +17,7 @@ let clearBtn = cartArea.querySelector('.cart-clear-btn');
 if (!clearBtn) {
   clearBtn = document.createElement('button');
   clearBtn.className = 'cart-clear-btn';
-  clearBtn.textContent = 'Clear Cart';
+  clearBtn.textContent = 'Vider le panier';
   clearBtn.onclick = () => {
     const event = new CustomEvent('CartCleared');
     window.dispatchEvent(event);
@@ -67,7 +67,7 @@ export function renderCart() {
     };
     li.querySelector('.cart-remove-btn').onclick = () => {
       removeFromCart(item.id);
-      showToast('Removed from cart');
+      showToast('Retiré du panier');
       renderCart();
     };
     cartList.appendChild(node);
