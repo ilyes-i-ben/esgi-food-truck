@@ -1,0 +1,82 @@
+/* order-tracker.css - Styles for order progress tracker, palette + Poppins */
+#order-tracker-root {
+  position: fixed;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 300;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2em;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+}
+.order-tracker {
+  background: var(--color-bg);
+  border: 2px solid var(--color-accent);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px var(--color-mid-alpha-80);
+  padding: 1.2em 2em 1.2em 2em;
+  min-width: 260px;
+  max-width: 95vw;
+  color: var(--color-dark);
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.order-stepper {
+  display: flex;
+  gap: 1.2em;
+  margin-bottom: 1em;
+}
+.order-step {
+  padding: 0.5em 1.1em;
+  border-radius: 8px;
+  background: var(--color-light);
+  color: var(--color-mid);
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  transition: background 0.18s, color 0.18s;
+}
+.order-step.active {
+  background: var(--color-accent);
+  color: var(--color-dark);
+  font-weight: 700;
+}
+.order-step.done {
+  background: var(--color-mid);
+  color: var(--color-bg);
+}
+.order-cancel-btn {
+  margin-top: 0.5em;
+  background: var(--color-mid);
+  color: var(--color-bg);
+  border: none;
+  border-radius: 8px;
+  padding: 0.5em 1.2em;
+  font-size: 1em;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+}
+.order-cancel-btn:hover, .order-cancel-btn:focus {
+  background: var(--color-dark);
+  color: var(--color-accent);
+}
+.order-cancelled {
+  margin-top: 0.7em;
+  color: var(--color-dark);
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+}
+@media (max-width: 600px) {
+  .order-tracker {
+    padding: 0.7em 0.5em;
+    min-width: 0;
+  }
+  .order-stepper {
+    gap: 0.5em;
+  }
+}

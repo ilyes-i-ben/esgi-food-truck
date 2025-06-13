@@ -1,6 +1,7 @@
 // orderModal.js - Order summary modal logic and rendering
 import { getCart } from '../cart.js';
 import { formatPrice } from '../utils/formatPrice.js';
+import { submitOrder } from '../order.js';
 
 const modalRoot = document.getElementById('order-summary-modal');
 const modalTemplate = document.getElementById('order-summary-modal-template');
@@ -70,7 +71,7 @@ export function openOrderModal() {
   modal.onclick = e => { if (e.target === modal) closeModal(); };
   function escListener(e) { if (e.key === 'Escape') closeModal(); }
   document.addEventListener('keydown', escListener);
-  // Focus trap
+ 
   function trapFocus(e) {
     const focusable = content.querySelectorAll('button, [tabindex]:not([tabindex="-1"])');
     const first = focusable[0];
@@ -85,8 +86,9 @@ export function openOrderModal() {
   }
   content.addEventListener('keydown', trapFocus);
   // Validate (next stage)
-  validateBtn.onclick = () => {
-    // Placeholder for order simulation
-    closeModal();
+  validateBtn.onclick = async () => {
+    const cart = getCart();
+    const ok = await submitOrder(cart, () => {});
+    if (ok) closeModal();
   };
 }
