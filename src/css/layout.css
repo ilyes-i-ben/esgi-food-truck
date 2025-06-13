@@ -1,0 +1,60 @@
+/* layout.css - Layout and structure styles for Mini Food Truck */
+#app-header {
+  background: var(--color-dark);
+  color: var(--color-bg);
+  padding: var(--spacing-sm) 0;
+  text-align: center;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 0 2px 12px var(--color-mid-alpha-80);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+#app-header h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--color-accent);
+}
+#main-layout {
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-lg) var(--spacing-md);
+  max-width: 1200px;
+  margin: 0 auto;
+  background: var(--color-bg);
+}
+#cart-area {
+  flex: 1;
+  background: var(--color-light);
+  border-radius: 18px;
+  box-shadow: 0 2px 12px var(--color-mid-alpha-80);
+  min-width: 280px;
+  max-width: 350px;
+  padding: var(--spacing-md);
+}
+@media (max-width: 900px) {
+  #main-layout {
+    flex-direction: column;
+    gap: var(--spacing-md);
+    padding: var(--spacing-sm);
+  }
+  #cart-area {
+    max-width: 100%;
+    min-width: unset;
+  }
+}
+@media (max-width: 600px) {
+  #app-header h1 {
+    font-size: 1.3rem;
+  }
+  #main-layout {
+    padding: var(--spacing-xs);
+  }
+  #cart-area {
+    padding: var(--spacing-sm);
+  }
+}

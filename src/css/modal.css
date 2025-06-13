@@ -1,0 +1,13 @@
+/* modal.css - Modal and overlay styles */
+.modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--color-dark-alpha-60);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+.hidden {
+  display: none !important;
+}

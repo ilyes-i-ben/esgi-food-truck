@@ -1,0 +1,23 @@
+/* toaster.css - Toast notification styles */
+#toaster-container {
+  position: fixed;
+  bottom: var(--spacing-lg);
+  right: var(--spacing-lg);
+  z-index: 200;
+  min-width: 220px;
+  max-width: 340px;
+}
+.toast {
+  background: var(--color-accent);
+  color: var(--color-dark);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: 10px;
+  margin-bottom: var(--spacing-xs);
+  box-shadow: 0 2px 8px var(--color-mid-alpha-80);
+  font-weight: 500;
+  animation: fadeIn 0.4s;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

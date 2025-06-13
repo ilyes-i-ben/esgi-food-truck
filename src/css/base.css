@@ -1,0 +1,35 @@
+/* base.css - CSS variables, resets, and typography for Mini Food Truck */
+:root {
+  --color-primary: #ff9800;
+  --color-secondary: #fff3e0;
+  --color-bg: #f7f7fa;
+  --color-text: #23272f;
+  --color-danger: #e74c3c;
+  --color-card: #fff;
+  --color-shadow: rgba(60,60,60,0.08);
+  --color-border: #ececec;
+  --radius: 18px;
+  --radius-sm: 10px;
+  --shadow: 0 4px 24px var(--color-shadow);
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 3rem;
+  --header-height: 64px;
+  --transition: 0.18s cubic-bezier(.4,0,.2,1);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--color-bg);
+  color: var(--color-dark);
+  font-size: 1.08rem;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6, button, input, .modal, .modal-content {
+  font-family: 'Poppins', sans-serif;
+}

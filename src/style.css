@@ -1,0 +1,261 @@
+/*
+  Mini Food Truck - Base Stylesheet
+  ---------------------------------
+  - Uses CSS variables for colors and spacing
+  - Responsive layout skeleton
+  - Clear comments for each section
+*/
+
+:root {
+  --color-primary: #ff9800;
+  --color-secondary: #fff3e0;
+  --color-bg: #f7f7fa;
+  --color-text: #23272f;
+  --color-accent: #00b894;
+  --color-danger: #e74c3c;
+  --color-card: #fff;
+  --color-shadow: rgba(60,60,60,0.08);
+  --color-border: #ececec;
+  --radius: 18px;
+  --radius-sm: 10px;
+  --shadow: 0 4px 24px var(--color-shadow);
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 3rem;
+  --header-height: 64px;
+  --transition: 0.18s cubic-bezier(.4,0,.2,1);
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-size: 1.08rem;
+  line-height: 1.6;
+}
+
+/* Header styles */
+#app-header {
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  color: white;
+  padding: var(--spacing-sm) 0;
+  text-align: center;
+  box-shadow: 0 2px 12px var(--color-shadow);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom-left-radius: var(--radius-sm);
+  border-bottom-right-radius: var(--radius-sm);
+}
+
+#app-header h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+/* Main layout: menu + cart */
+#main-layout {
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-lg) var(--spacing-md);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Menu section styles */
+#menu-section {
+  flex: 2;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  min-height: 500px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+/* Menu card styles */
+.menu-card {
+  background: var(--color-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  overflow: hidden;
+  transition: box-shadow var(--transition), transform var(--transition);
+  min-width: 0;
+  min-height: 420px;
+  position: relative;
+}
+.menu-card:hover, .menu-card:focus-within {
+  box-shadow: 0 8px 32px var(--color-shadow);
+  transform: translateY(-2px) scale(1.02);
+}
+.menu-card__img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  background: #eee;
+  border-bottom: 1px solid var(--color-border);
+}
+.menu-card__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-md);
+}
+.menu-card__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 var(--spacing-xs) 0;
+  color: var(--color-primary);
+}
+.menu-card__desc {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: var(--spacing-sm);
+  flex: 1;
+}
+.menu-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--spacing-sm);
+}
+.menu-card__price {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+.menu-card__btn {
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 0.7em 1.4em;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px var(--color-shadow);
+  transition: background var(--transition), box-shadow var(--transition), transform var(--transition);
+  outline: none;
+}
+.menu-card__btn:hover, .menu-card__btn:focus {
+  background: linear-gradient(90deg, var(--color-accent), var(--color-primary));
+  box-shadow: 0 4px 16px var(--color-shadow);
+  transform: scale(1.04);
+}
+
+/* Cart area styles */
+#cart-area {
+  flex: 1;
+  background: var(--color-secondary);
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+  min-width: 280px;
+  max-width: 350px;
+  padding: var(--spacing-md);
+  /* Cart items will be injected here */
+}
+
+/* Order summary modal placeholder */
+.modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  /* Modal content will be injected here */
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Loader styles */
+.menu-loader {
+  grid-column: 1/-1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 320px;
+}
+.loader {
+  border: 5px solid #eee;
+  border-top: 5px solid var(--color-primary);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Toaster/notification container */
+#toaster-container {
+  position: fixed;
+  bottom: var(--spacing-lg);
+  right: var(--spacing-lg);
+  z-index: 200;
+  min-width: 220px;
+  max-width: 340px;
+  /* Toasts will be injected here */
+}
+.toast {
+  background: var(--color-danger);
+  color: #fff;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--spacing-xs);
+  box-shadow: 0 2px 8px var(--color-shadow);
+  font-weight: 500;
+  animation: fadeIn 0.4s;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  #main-layout {
+    flex-direction: column;
+    gap: var(--spacing-md);
+    padding: var(--spacing-sm);
+  }
+  #cart-area {
+    max-width: 100%;
+    min-width: unset;
+  }
+  #menu-section {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+  }
+}
+@media (max-width: 600px) {
+  #app-header h1 {
+    font-size: 1.3rem;
+  }
+  #main-layout {
+    padding: var(--spacing-xs);
+  }
+  #menu-section, #cart-area {
+    padding: var(--spacing-sm);
+  }
+  #menu-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* End of base styles */

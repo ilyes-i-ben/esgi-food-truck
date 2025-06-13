@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Food Truck</title>
+  <!-- Google Fonts: Poppins only -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Main stylesheet (modular imports) -->
+  <link rel="stylesheet" href="/src/css/main.css">
+</head>
+<body>
+  <!-- Header: App Title -->
+  <header id="app-header">
+    <h1>Mini Food Truck</h1>
+  </header>
+
+  <!-- Main Content Layout -->
+  <main id="main-layout">
+    <!-- Menu Section: Meals will be dynamically loaded here -->
+    <section id="menu-section" aria-label="Menu">
+      <!-- Menu items will be injected here by JS -->
+    </section>
+
+    <!-- Cart Sidebar/Area: Cart items will appear here -->
+    <aside id="cart-area" aria-label="Cart">
+      <h2 class="cart-title">Your Cart</h2>
+      <ul class="cart-list"></ul>
+      <div class="cart-total-row hidden">
+        <span>Total:</span>
+        <span class="cart-total"></span>
+      </div>
+      <button class="cart-order-btn" type="button" disabled>Order</button>
+      <div class="cart-empty hidden">Your cart is empty.<br><span style="font-size:2em;">🛒</span></div>
+    </aside>
+  </main>
+
+  <!-- Templates for cart item and empty state -->
+  <template id="cart-item-template">
+    <li class="cart-item" data-id="">
+      <img src="" alt="" class="cart-item-img">
+      <div class="cart-item-info">
+        <div class="cart-item-name"></div>
+        <div class="cart-item-price"></div>
+      </div>
+      <div class="cart-item-qty">
+        <button class="cart-qty-btn cart-qty-minus" type="button">-</button>
+        <input type="number" min="1" value="1" class="cart-qty-input">
+        <button class="cart-qty-btn cart-qty-plus" type="button">+</button>
+      </div>
+      <div class="cart-item-subtotal"></div>
+      <button class="cart-remove-btn" type="button" title="Remove">×</button>
+    </li>
+  </template>
+
+  <!-- Order Summary Modal Template -->
+  <template id="order-summary-modal-template">
+    <div class="modal" role="dialog" aria-modal="true" tabindex="-1">
+      <div class="modal-content" tabindex="0">
+        <button class="modal-close-btn" aria-label="Close">×</button>
+        <h2 class="modal-title">Order Summary</h2>
+        <ul class="modal-cart-list"></ul>
+        <div class="modal-summary-totals">
+          <div><span>Subtotal (HT):</span> <span class="modal-ht"></span></div>
+          <div><span>VAT (10%):</span> <span class="modal-vat"></span></div>
+          <div class="modal-summary-total"><span>Total (TTC):</span> <span class="modal-ttc"></span></div>
+        </div>
+        <div class="modal-actions">
+          <button class="modal-cancel-btn" type="button">Cancel</button>
+          <button class="modal-validate-btn" type="button">Validate</button>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <!-- Order Summary Modal Placeholder -->
+  <div id="order-summary-modal" class="modal hidden" aria-modal="true" role="dialog">
+    <!-- Order summary will be injected here by JS -->
+  </div>
+
+  <!-- Toaster/Notification Container -->
+  <div id="toaster-container" aria-live="polite">
+    <!-- Toast notifications will appear here -->
+  </div>
+
+  <!-- Main JS (ES6 module) -->
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>
