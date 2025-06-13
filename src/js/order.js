@@ -47,9 +47,8 @@ export function restoreOrders(onDone) {
     if (!order.cancelled && order.state < 2) {
       renderOrderTracker(order, false);
       simulateOrderProgress(order, onDone, true);
-    } else if (order.state === 2) {
-      renderOrderTracker(order, false);
     }
+    // do NOT render tracker or fire events for shipped/completed orders
   });
 }
 
@@ -87,7 +86,7 @@ async function simulateOrderProgress(order, onDone, restoring = false) {
     if (orders[idx] && !orders[idx].cancelled && orders[idx].state === 1) {
       orders[idx].state = 2;
       saveOrders(orders);
-      renderOrderTracker(orders[idx], false);
+      renderOrderTracker({ ...orders[idx], _restoring: restoring ? true : false }, false);
       if (onDone) onDone(orders[idx]);
     }
   }

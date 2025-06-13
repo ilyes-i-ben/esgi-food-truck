@@ -11,6 +11,8 @@ export class OrderHistory {
     this.render();
   }
   add(order) {
+    // prevent duplicate history entries
+    if (this.history.some(o => o.id === order.id)) return;
     this.history.push({
       id: order.id,
       date: new Date(order.created).toLocaleString(),

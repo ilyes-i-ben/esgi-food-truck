@@ -36,11 +36,15 @@ export function renderOrderTracker(order, allowCancel) {
     tracker.appendChild(cancelled);
   }
   // auto-hide tracker and dispatch OrderShipped when delivered
-  if (order.state === 2) {
-    setTimeout(() => {
-      tracker.remove();
-      window.dispatchEvent(new CustomEvent('OrderShipped', { detail: order }));
-    }, 1200);
+  if (order.state === 2 && !order.cancelled) {
+    if (!order._restoring) {
+      setTimeout(() => {
+        tracker.remove();
+        window.dispatchEvent(new CustomEvent('OrderShipped', { detail: order }));
+      }, 1200);
+    } else {
+      setTimeout(() => tracker.remove(), 1200);
+    }
   }
 }
 
