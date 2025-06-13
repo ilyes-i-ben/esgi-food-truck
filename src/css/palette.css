@@ -1,13 +1,20 @@
-/* palette.css - Color palette variables for Mini Food Truck */
+/* palette.css - duotone rebrand: blue & white */
 :root {
-  --color-dark: #463f3a;
-  --color-mid: #8a817c;
-  --color-light: #bcb8b1;
-  --color-bg: #f4f3ee;
-  --color-accent: #e0afa0;
-  /* Alpha overlays for modals, etc. */
-  --color-dark-alpha-80: rgba(70, 63, 58, 0.8);
-  --color-dark-alpha-60: rgba(70, 63, 58, 0.6);
-  --color-mid-alpha-80: rgba(138, 129, 124, 0.8);
-  --color-accent-alpha-90: rgba(224, 175, 160, 0.9);
+  --duo-1: #1a2238; /* deep blue */
+  --duo-2: #ffffff; /* white */
+  /* semantic aliases for duotone */
+  --color-bg: var(--duo-2);
+  --color-accent: var(--duo-1);
+  --color-dark: #000000;
+  --color-success: var(--duo-1);
+  --color-accent2: var(--duo-1);
+  --color-mid: var(--duo-1);
+  --color-light: var(--duo-2);
+  --color-danger: var(--duo-1);
+  --color-shadow: rgba(26,34,56,0.08);
+  --color-border: #e9e9f0;
+  --color-dark-alpha-80: rgba(0,0,0,0.8);
+  --color-dark-alpha-60: rgba(0,0,0,0.6);
+  --color-mid-alpha-80: rgba(26,34,56,0.08);
+  --color-accent-alpha-90: rgba(26,34,56,0.9);
 }

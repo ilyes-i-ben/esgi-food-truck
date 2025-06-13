@@ -24,16 +24,19 @@
 
     <!-- Cart Sidebar/Area: Cart items will appear here -->
     <aside id="cart-area" aria-label="Cart">
-      <h2 class="cart-title">Your Cart</h2>
+      <h2 class="cart-title">your cart</h2>
       <ul class="cart-list"></ul>
       <div class="cart-total-row hidden">
-        <span>Total:</span>
+        <span>total:</span>
         <span class="cart-total"></span>
       </div>
-      <button class="cart-order-btn" type="button">Order</button>
-      <div class="cart-empty hidden">Your cart is empty.<br><span style="font-size:2em;">🛒</span></div>
+      <button class="cart-order-btn" type="button">order</button>
+      <div class="cart-empty hidden">your cart is empty.<br><span style="font-size:1.2em;">🛒</span></div>
     </aside>
   </main>
+
+  <!-- order tracker root moved to bottom right for modern floating bar -->
+  <div id="order-tracker-root"></div>
 
   <!-- Templates for cart item and empty state -->
   <template id="cart-item-template">
@@ -49,7 +52,7 @@
         <button class="cart-qty-btn cart-qty-plus" type="button">+</button>
       </div>
       <div class="cart-item-subtotal"></div>
-      <button class="cart-remove-btn" type="button" title="Remove">×</button>
+      <button class="cart-remove-btn" type="button" title="remove">×</button>
     </li>
   </template>
 
@@ -57,17 +60,17 @@
   <template id="order-summary-modal-template">
     <div class="modal" role="dialog" aria-modal="true" tabindex="-1">
       <div class="modal-content" tabindex="0">
-        <button class="modal-close-btn" aria-label="Close">×</button>
-        <h2 class="modal-title">Order Summary</h2>
+        <button class="modal-close-btn" aria-label="close">×</button>
+        <h2 class="modal-title">order summary</h2>
         <ul class="modal-cart-list"></ul>
         <div class="modal-summary-totals">
-          <div><span>Subtotal (HT):</span> <span class="modal-ht"></span></div>
-          <div><span>VAT (10%):</span> <span class="modal-vat"></span></div>
-          <div class="modal-summary-total"><span>Total (TTC):</span> <span class="modal-ttc"></span></div>
+          <div><span>subtotal (ht):</span> <span class="modal-ht"></span></div>
+          <div><span>vat (10%):</span> <span class="modal-vat"></span></div>
+          <div class="modal-summary-total"><span>total (ttc):</span> <span class="modal-ttc"></span></div>
         </div>
         <div class="modal-actions">
-          <button class="modal-cancel-btn" type="button">Cancel</button>
-          <button class="modal-validate-btn" type="button">Validate</button>
+          <button class="modal-cancel-btn" type="button">cancel</button>
+          <button class="modal-validate-btn" type="button">validate</button>
         </div>
       </div>
     </div>

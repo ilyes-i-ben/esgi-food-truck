@@ -26,9 +26,9 @@ export class OrderHistory {
     this.save();
   }
   render() {
-    this.root.innerHTML = '<h2 class="order-history-title">order history</h2>';
+    this.root.innerHTML = '<h2 class="order-history-title">Order History</h2>';
     if (!this.history.length) {
-      this.root.innerHTML += '<div class="order-history-empty">no orders yet</div>';
+      this.root.innerHTML += '<div class="order-history-empty">No Orders Yet</div>';
       return;
     }
     const list = document.createElement('ul');

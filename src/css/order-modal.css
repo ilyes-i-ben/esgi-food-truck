@@ -1,4 +1,4 @@
-/* order-modal.css - Styles for order summary modal, using palette and Poppins font */
+/* order-modal.css - duotone rebrand: blue & white */
 .modal {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
@@ -11,125 +11,105 @@
 }
 .modal-content {
   background: var(--color-bg);
-  border-radius: 18px;
-  box-shadow: 0 8px 32px var(--color-mid-alpha-80);
-  padding: 2.5rem 2rem 2rem 2rem;
-  min-width: 320px;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 24px var(--color-dark-alpha-80);
+  padding: 1.2rem 0.8rem 1rem 0.8rem;
+  min-width: 200px;
   max-width: 95vw;
-  width: 400px;
+  width: 270px;
   position: relative;
   font-family: 'Poppins', sans-serif;
-  color: var(--color-dark);
+  color: var(--color-accent);
 }
 .modal-title {
-  font-size: 1.5rem;
+  font-size: 1.08rem;
   font-weight: 700;
-  margin: 0 0 1.2rem 0;
+  margin: 0 0 0.7rem 0;
   color: var(--color-accent);
   text-align: center;
 }
 .modal-close-btn {
   position: absolute;
-  top: 1.2rem;
-  right: 1.2rem;
+  top: 0.7rem;
+  right: 0.7rem;
   background: none;
   border: none;
-  color: var(--color-mid);
-  font-size: 2rem;
+  color: var(--color-accent);
+  font-size: 1.3rem;
   cursor: pointer;
   border-radius: 50%;
-  transition: background 0.18s, color 0.18s;
+  transition: background var(--transition), color var(--transition);
   font-family: 'Poppins', sans-serif;
 }
 .modal-close-btn:hover, .modal-close-btn:focus {
   background: var(--color-accent);
-  color: var(--color-bg);
+  color: var(--color-light);
 }
 .modal-cart-list {
   list-style: none;
-  margin: 0 0 1.2rem 0;
+  margin: 0 0 0.7rem 0;
   padding: 0;
-  max-height: 220px;
+  max-height: 120px;
   overflow-y: auto;
 }
 .modal-cart-list li {
   display: flex;
   align-items: center;
-  gap: 0.7em;
-  padding: 0.5em 0;
-  border-bottom: 1px solid var(--color-light);
-  font-size: 1rem;
+  gap: 0.4em;
+  padding: 0.3em 0;
+  border-bottom: 1px solid var(--color-accent);
+  font-size: 0.92rem;
 }
 .modal-cart-list li:last-child {
   border-bottom: none;
 }
 .modal-cart-list img {
-  width: 38px;
-  height: 38px;
+  width: 24px;
+  height: 24px;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   background: var(--color-light);
 }
 .modal-cart-list .modal-cart-item-name {
   flex: 1;
-  color: var(--color-dark);
+  color: var(--color-accent);
   font-weight: 500;
 }
 .modal-cart-list .modal-cart-item-qty {
-  color: var(--color-mid);
-  min-width: 2.5em;
-  text-align: right;
-}
-.modal-cart-list .modal-cart-item-subtotal {
   color: var(--color-accent);
-  min-width: 4em;
-  text-align: right;
-  font-weight: 600;
+  min-width: 2em;
 }
 .modal-summary-totals {
-  margin: 1.2em 0 1.5em 0;
-  font-size: 1.08em;
-}
-.modal-summary-totals > div {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 0.3em;
+  margin: 0.5em 0 0.7em 0;
+  font-size: 0.92rem;
+  color: var(--color-accent);
 }
 .modal-summary-total {
   font-weight: 700;
   color: var(--color-accent);
+  font-size: 1.02rem;
 }
 .modal-actions {
   display: flex;
-  gap: 1em;
+  gap: var(--spacing-xs);
   justify-content: flex-end;
-  margin-top: 1.5em;
+  margin-top: 0.5em;
 }
 .modal-cancel-btn, .modal-validate-btn {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.08em;
-  font-weight: 600;
-  border: none;
-  border-radius: 8px;
-  padding: 0.7em 1.5em;
-  cursor: pointer;
-  transition: background 0.18s, color 0.18s;
-}
-.modal-cancel-btn {
-  background: var(--color-mid);
-  color: var(--color-bg);
-}
-.modal-cancel-btn:hover, .modal-cancel-btn:focus {
-  background: var(--color-dark);
-  color: var(--color-accent);
-}
-.modal-validate-btn {
   background: var(--color-accent);
-  color: var(--color-dark);
+  color: var(--color-light);
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 0.3em 1em;
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 1px 4px var(--color-mid-alpha-80);
+  transition: background var(--transition), color var(--transition);
 }
-.modal-validate-btn:hover, .modal-validate-btn:focus {
+.modal-cancel-btn:hover, .modal-validate-btn:hover, .modal-cancel-btn:focus, .modal-validate-btn:focus {
   background: var(--color-dark);
-  color: var(--color-bg);
+  color: var(--color-light);
 }
 @media (max-width: 500px) {
   .modal-content {

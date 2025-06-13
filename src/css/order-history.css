@@ -1,19 +1,17 @@
-/* order-history.css - styles for order history panel */
+/* order-history.css - duotone rebrand: blue & white */
 .order-history-section {
   background: var(--color-bg);
-  border: 2px solid var(--color-accent);
-  border-radius: 18px;
-  box-shadow: 0 2px 12px var(--color-mid-alpha-80);
-  margin: 2rem auto 2rem auto;
+  color: var(--color-accent);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: var(--spacing-md);
+  margin: 2rem auto;
   max-width: 700px;
-  padding: 1.2rem 1.5rem;
-  font-family: 'Poppins', sans-serif;
 }
 .order-history-title {
-  color: var(--color-dark);
-  font-size: 1.3rem;
+  color: var(--color-accent);
+  font-size: 1.1rem;
   font-weight: 700;
-  margin-bottom: 1rem;
 }
 .order-history-list {
   list-style: none;
@@ -21,11 +19,12 @@
   padding: 0;
 }
 .order-history-item {
-  background: var(--color-light);
-  border-radius: 10px;
-  margin-bottom: 1em;
-  padding: 0.7em 1em;
-  color: var(--color-dark);
+  border-bottom: 1px solid var(--color-accent);
+  padding: var(--spacing-xs) 0;
+  color: var(--color-accent);
+}
+.order-history-item:last-child {
+  border-bottom: none;
 }
 .order-history-meta {
   font-size: 0.98em;
