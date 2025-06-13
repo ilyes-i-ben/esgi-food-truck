@@ -1,8 +1,16 @@
 import { formatPrice } from '../utils/formatPrice.js';
 
+const descs = [
+  "Un plat savoureux, préparé à la minute !",
+  "Recette maison, fraîcheur garantie.",
+  "Goûtez la différence, c'est fait avec amour.",
+  "Ingrédients frais, plaisir assuré.",
+  "Une expérience gourmande à chaque bouchée."
+];
+
 export function menuCardHTML(item) {
-  const imgSrc = item.image || 'https://placehold.co/400x300?text=No+Image';
-  const desc = item.description || 'Delicious meal, freshly prepared!';
+  const imgSrc = item.image ?? 'https://placehold.co/400x300?text=No+Image';
+  const desc = item.description ?? descs[Math.floor(Math.random() * descs.length)];
   return `
     <article class="menu-card" tabindex="0" data-id="${item.id}">
       <img class="menu-card__img" src="${imgSrc}" alt="${item.name}" loading="lazy" onerror="this.src='https://placehold.co/400x300?text=No+Image'">
@@ -11,7 +19,7 @@ export function menuCardHTML(item) {
         <p class="menu-card__desc">${desc}</p>
         <div class="menu-card__footer">
           <span class="menu-card__price">${formatPrice(item.price)}</span>
-          <button class="menu-card__btn" type="button" data-addcart> Add to Cart </button>
+          <button class="menu-card__btn" type="button" data-addcart> Ajouter au panier </button>
         </div>
       </div>
     </article>
