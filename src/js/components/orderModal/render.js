@@ -1,6 +1,7 @@
 // render.js - renders order summary modal ui
 import { formatPrice } from '../../utils/formatPrice.js';
-import { calcSubtotal, calcVat, calcTotal } from '../../utils/orderCalc.js';
+import { OrderCalc } from '../../utils/OrderCalc.js';
+
 
 // renders the modal and returns references to key elements
 export function renderOrderModal(cart) {
@@ -36,9 +37,9 @@ export function renderOrderModal(cart) {
     cartList.appendChild(li);
   });
   // calculate totals
-  const ht = calcSubtotal(cart);
-  const vat = calcVat(ht);
-  const ttc = calcTotal(ht, vat);
+  const ht = OrderCalc.subtotal(cart);
+  const vat = OrderCalc.vat(ht);
+  const ttc = OrderCalc.total(ht, vat);
   htSpan.textContent = formatPrice(ht);
   vatSpan.textContent = formatPrice(vat);
   ttcSpan.textContent = formatPrice(ttc);
